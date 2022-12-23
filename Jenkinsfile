@@ -75,7 +75,7 @@ pipeline {
                             "files": [
                                 {
                                "pattern": "webapp/target2/*.war",
-                               "target": "artifactory/\$RELEASE_VERSION/com/example/maven-project/webapp/\$POM_VERSION/"
+                               "target": "artifactory/\\$RELEASE_VERSION/com/example/maven-project/webapp/\\$POM_VERSION/"
                                 }
                             ]
                         }''',
