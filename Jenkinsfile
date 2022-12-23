@@ -11,6 +11,7 @@ pipeline {
     stages {
         stage('Clone the Code') {
             steps {
+                sh 'printenv'
                 git 'https://github.com/futuretechdevops/hello-world.git'
             }
         }
