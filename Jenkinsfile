@@ -58,10 +58,12 @@ pipeline {
                     
                     if (env.RELEASE_VERSION == 'RELEASE') {
                         env.RELEASE_VERSION = "Release"
+                        echo "This is RELEASE?"
                         echo "${env.RELEASE_VERSION}"
                     }
                     else {
                         env.RELEASE_VERSION = "Snapshot"
+                        echo "This is SNAPSHOT?"
                         echo "${env.RELEASE_VERSION}"
                     }
                     rtServer (
