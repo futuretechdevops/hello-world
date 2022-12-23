@@ -85,8 +85,8 @@ pipeline {
                         buildNumber: "$BUILD_NUMBER"
                     )
                 }
-                stash includes: '**/target/*.war', name: "$WARfile"
-                stash includes: 'Dockerfile', name: "$Dockerfile"
+                stash includes: '**/target/*.war', name: "WARfile"
+                stash includes: 'Dockerfile', name: "Dockerfile"
             }
         }
         stage('docker-build/tag/push') {
@@ -94,8 +94,8 @@ pipeline {
                 label 'docker'
             }
             steps {
-                unstash "$WARfile"
-                unstash "$Dockerfile"
+                unstash "WARfile"
+                unstash "Dockerfile"
                 //sh 'printenv'
                 //sh 'hostname -i && pwd && ls && whoami'
                 sh 'docker build -t futuretechdevops/tomcat:\$BUILD_NUMBER-\$RELEASE_VERSION . -f Dockerfile'
