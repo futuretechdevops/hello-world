@@ -11,7 +11,9 @@ pipeline {
     stages {
         stage('Clone the Code') {
             steps {
-                git 'https://github.com/futuretechdevops/hello-world.git'
+                //sh 'printenv'
+                git branch: '$BRANCH_NAME', url: 'https://github.com/futuretechdevops/hello-world.git'
+                //git  'https://github.com/futuretechdevops/hello-world.git'
             }
         }
         stage('MVN Build and Publish the Unit Test Results') {
@@ -83,8 +85,8 @@ pipeline {
                         buildNumber: "$BUILD_NUMBER"
                     )
                 }
-                stash includes: '**/target/*.war', name: "$JOB_NAME-WARfile"
-                stash includes: 'Dockerfile', name: "$JOB_NAME-Dockerfile"
+                stash includes: '**/target/*.war', name: "WARfile"
+                stash includes: 'Dockerfile', name: "Dockerfile"
             }
         }
         stage('docker-build/tag/push') {
@@ -92,8 +94,8 @@ pipeline {
                 label 'docker'
             }
             steps {
-                unstash "$JOB_NAME-WARfile"
-                unstash "$JOB_NAME-Dockerfile"
+                unstash "WARfile"
+                unstash "Dockerfile"
                 //sh 'printenv'
                 //sh 'hostname -i && pwd && ls && whoami'
                 sh 'docker build -t futuretechdevops/tomcat:\$BUILD_NUMBER-\$RELEASE_VERSION . -f Dockerfile'
