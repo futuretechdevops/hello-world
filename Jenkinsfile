@@ -11,10 +11,8 @@ pipeline {
     stages {
         stage('Clone the Code') {
             steps {
-                sh 'printenv'
+                //sh 'printenv'
                 git branch: '$BRANCH_NAME', url: 'https://github.com/futuretechdevops/hello-world.git'
-                sh 'echo --------'
-                sh 'git branch'
                 //git  'https://github.com/futuretechdevops/hello-world.git'
             }
         }
