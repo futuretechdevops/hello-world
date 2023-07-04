@@ -1,1 +1,1 @@
-FROM futuretechdevops/tomcat-temp:v8
+FROM futuretechdevops/tomcat-temp:v3
