@@ -32,7 +32,7 @@
   </div>
 
    <h1> Thankyou, Happy Learning </h1>
-   <h1> WELCOME TO FUTURETECH DEVOPS-Release-jun-17 !!!! </h1>
+   <h1> WELCOME TO FUTURETECH DEVOPS-PUSH !!!! </h1>
 
   
 </form>
